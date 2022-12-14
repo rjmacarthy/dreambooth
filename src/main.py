@@ -17,7 +17,6 @@ from load_models import load_pretrained_models
 from utilities import collate_fn, get_batches
 
 logger = get_logger(__name__)
-parse_args()
 
 def init():
     torch.backends.cudnn.deterministic = True
@@ -61,7 +60,7 @@ def main(args):
     weight_dtype = torch.float32
 
     vae.to(accelerator.device, dtype=weight_dtype)
-    
+
     text_encoder.to(accelerator.device, dtype=weight_dtype)
 
     latents_cache, text_encoder_cache = get_batches(train_dataloader, accelerator, vae, text_encoder, weight_dtype)
