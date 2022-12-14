@@ -1,0 +1,31 @@
+
+# dreambooth
+
+This repository contains a refactored and slimmed-down version of the [diffusers](https://github.com/ShivamShrirao/diffusers) project.
+
+## Training StableDiffusion on your own images
+
+To train StableDiffusion using on your own images, follow these steps:
+
+1. Set up a directory structure with the following folders:
+    * `pretrained_model`: This should contain the name pretrained model to download from huggingface, `runwayml/stable-diffusion-v1-5`.
+    * `instance_dir`: This should contain the images that you want to train StableDiffusion on.
+    * `output_dir`: This is where the trained model will be saved.
+2. Run the `main.py` script with the following parameters:
+
+```
+main.py
+--pretrained_model runwayml/stable-diffusion-v1-5
+--instance_dir /path/to/instance_dir
+--output_dir /path/to/output_dir
+--instance_prompt a\ photo\ of\ sks\ person
+--size 512
+--batch_size 1
+--gradient_accumulation_steps 1
+--learning_rate 5e-6
+--lr_scheduler constant
+--lr_warmup_steps 0
+--max_train_steps 1000
+```
+
+For more information on the available parameters and their meanings, please see the [diffusers](https://github.com/ShivamShrirao/diffusers) repository.
