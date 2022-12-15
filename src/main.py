@@ -18,13 +18,10 @@ from utilities import collate_fn, get_batches
 
 logger = get_logger(__name__)
 
-def init():
+if __name__ == "__main__":
+    args = parse_args()
     torch.backends.cudnn.deterministic = True
     torch.backends.cudnn.benchmark = False
-    
-def main(args):
-
-    init()
 
     accelerator = Accelerator(
         gradient_accumulation_steps=args.gradient_accumulation_steps,
@@ -144,8 +141,3 @@ def main(args):
     save_weights(args, accelerator, unet)
 
     accelerator.end_training()
-
-
-if __name__ == "__main__":
-    args = parse_args()
-    main(args)
