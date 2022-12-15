@@ -92,7 +92,9 @@ def main(args):
 
     print("Training...please wait")
 
-    progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process).set_description("Steps")
+    progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process)
+
+    progress_bar.set_description("Steps")
 
     global_step = 0
 
