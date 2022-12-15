@@ -28,4 +28,20 @@ main.py
 --max_train_steps 1000
 ```
 
+#  dreambooth to original stable diffusion ckpt
+
+The `src/convert.py` file script allows you to convert your trained model to the original stable diffusion format.
+
+To use it, run the following command:
+
+```
+src/convert.py 
+    --model_path /home/person/models/output_dir
+    --checkpoint_path /home/person/models/person.ckpt
+```
+
+The --model_path option specifies the location of your trained model, and the --checkpoint_path option specifies the location where the converted model will be saved.
+
+Please note that the converted model will be saved in the original stable diffusion format, which may not be compatible with your current model. Therefore, it is recommended to save the converted model to a separate location to avoid overwriting your current model.
+
 For more information on the available parameters and their meanings, please see the [diffusers](https://github.com/huggingface/diffusers) repository.
