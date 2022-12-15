@@ -124,7 +124,7 @@ def main(args):
                 optimizer.step()
                 lr_scheduler.step()
                 optimizer.zero_grad(set_to_none=True)
-                loss_avg.update(loss.detach_(), bsz)
+                loss_avg.update(loss.detach_(), latent_batch_size)
 
             if not global_step % args.log_interval:
                 logs = {"loss": loss_avg.avg.item(), "lr": lr_scheduler.get_last_lr()[0]}
