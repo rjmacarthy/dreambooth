@@ -28,4 +28,4 @@ main.py
 --max_train_steps 1000
 ```
 
-For more information on the available parameters and their meanings, please see the [diffusers](https://github.com/ShivamShrirao/diffusers) repository.
+For more information on the available parameters and their meanings, please see the [diffusers](https://github.com/huggingface/diffusers) repository.
