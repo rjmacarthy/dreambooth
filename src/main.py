@@ -66,7 +66,7 @@ def main(args):
     latents_cache, text_encoder_cache = get_batches(train_dataloader, accelerator, vae, text_encoder, weight_dtype)
 
     train_dataset = LatentsDataset(latents_cache, text_encoder_cache)
-    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=1, collate_fn=lambda x: x, shuffle=True)
+    train_dataloader = torch.utils.data.DataLoader(train_dataset, batch_size=args.batch_size, collate_fn=lambda x: x, shuffle=True)
 
     del vae
 
@@ -92,10 +92,12 @@ def main(args):
 
     print("Training...please wait")
 
-    progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process)
-    progress_bar.set_description("Steps")
+    progress_bar = tqdm(range(args.max_train_steps), disable=not accelerator.is_local_main_process).set_description("Steps")
+
     global_step = 0
+
     loss_avg = AverageMeter()
+
     for _ in range(args.train_epochs):
         unet.train()
         for _, batch in enumerate(train_dataloader):
@@ -106,11 +108,11 @@ def main(args):
                     latents = latent_dist.sample() * 0.18215
 
                 noise = torch.randn_like(latents)
-                bsz = latents.shape[0]
+                latent_batch_size = latents.shape[0]
                 timesteps = torch.randint(
                     0,
                     noise_scheduler.config.num_train_timesteps,
-                    (bsz,),
+                    (latent_batch_size,),
                     device=latents.device
                 ).long()
 
