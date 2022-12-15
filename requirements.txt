@@ -1,10 +1,10 @@
 accelerate==0.12.0
-torchvision
-transformers>=4.21.0
-ftfy
-tensorboard
-modelcards
-tqdm
-torch
 diffusers
+ftfy
+modelcards
 Pillow
+tensorboard
+torch
+torchvision
+tqdm
+transformers>=4.21.0
