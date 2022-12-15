@@ -28,7 +28,7 @@ main.py
 --max_train_steps 1000
 ```
 
-## convert to original stable diffusion ckpt
+## Convert to original stable diffusion ckpt
 
 The `src/convert.py` file script allows you to convert your trained model to the original stable diffusion format.
 
