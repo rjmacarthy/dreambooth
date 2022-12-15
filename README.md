@@ -40,7 +40,7 @@ src/convert.py
     --checkpoint_path /home/person/models/person.ckpt
 ```
 
-The --model_path option specifies the location of your trained model, and the --checkpoint_path option specifies the location where the converted model will be saved.
+The `--model_path` option specifies the location of your trained model, and the `--checkpoint_path` option specifies the location where the converted model will be saved.
 
 Please note that the converted model will be saved in the original stable diffusion format, which may not be compatible with your current model. Therefore, it is recommended to save the converted model to a separate location to avoid overwriting your current model.
 
