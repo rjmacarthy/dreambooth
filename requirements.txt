@@ -4,3 +4,7 @@ transformers>=4.21.0
 ftfy
 tensorboard
 modelcards
+tqdm
+torch
+diffusers
+Pillow

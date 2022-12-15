@@ -4,7 +4,7 @@ import torch.nn.functional as F
 import torch.utils.checkpoint
 from accelerate import Accelerator
 from accelerate.logging import get_logger
-from diffusers import  DDPMScheduler
+from diffusers import DDPMScheduler
 from diffusers.optimization import get_scheduler
 from tqdm.auto import tqdm
 from pathlib import Path
